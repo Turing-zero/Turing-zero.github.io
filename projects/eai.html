@@ -202,151 +202,389 @@
         </section>
 
         <!-- Part 2: Core Challenges -->
-        <section id="part2" class="py-20 bg-white">
-            <div class="container mx-auto px-4">
+        <section id="part2" class="py-32 bg-gradient-to-br from-slate-50 to-blue-50">
+            <div class="container mx-auto px-6">
                 <h2 class="section-title">核心挑战与业界格局</h2>
+                <p class="section-subtitle">
+                    深度剖析无人驾驶经验的适用性，洞察学术前沿的研究方向，全面解析产业巨头的技术路线
+                </p>
                 
-                <!-- Slide 4: Quadrant Chart -->
-                <div class="mt-16">
-                    <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">无人驾驶的经验：哪些是“金子”，哪些是“陷阱”？</h3>
-                    <p class="text-slate-600 text-center mb-12 max-w-2xl mx-auto">通过系统性分析无人驾驶与具身智能的异同，我们可以甄别出真正有价值的技术资产，并避开不适用的路径依赖。</p>
-                    <div class="relative max-w-4xl mx-auto border-2 border-slate-300 rounded-lg grid grid-cols-2 grid-rows-2">
-                        <!-- Axes -->
-                        <div class="absolute -bottom-10 left-0 w-full text-center text-sm text-slate-500">无人驾驶技术成熟度 (← 已解决 · 仍是挑战 →)</div>
-                        <div class="absolute -left-16 top-0 h-full flex items-center text-sm text-slate-500" style="writing-mode: vertical-rl;">与具身智能的相似度 ( ←高度相似·差异巨大→ )</div>
+                <!-- Enhanced Slide 4: Quadrant Chart -->
+                <div class="mt-20">
+                    <div class="enhanced-card p-12 mb-16">
+                        <h3 class="text-3xl font-bold text-slate-800 text-center mb-6 gradient-text">
+                            无人驾驶的经验：哪些是"金子"，哪些是"陷阱"？
+                        </h3>
+                        <p class="text-slate-600 text-center mb-16 max-w-4xl mx-auto text-lg leading-relaxed">
+                            通过系统性分析无人驾驶与具身智能的技术异同，我们可以精准甄别出真正有价值的技术资产，同时有效避开不适用的路径依赖陷阱。
+                        </p>
                         
-                        <!-- Quadrant 1: Top Left -->
-                        <div class="quadrant border-r border-b">
-                            <div class="quadrant-title top-2 left-2 bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm">可直接借鉴</div>
-                            <ul class="list-disc list-inside text-slate-700 mt-8 space-y-2">
-                                <li>3D感知与融合技术栈</li>
-                                <li>数据闭环基础设施</li>
-                                <li>大规模模型训练经验</li>
-                            </ul>
-                        </div>
-                        <!-- Quadrant 2: Top Right -->
-                        <div class="quadrant border-b">
-                            <div class="quadrant-title top-2 right-2 bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-sm">需谨慎吸取</div>
-                             <ul class="list-disc list-inside text-slate-700 mt-8 space-y-2">
-                                <li>端到端模型理念</li>
-                                <li>模仿学习策略</li>
-                                <li>长尾问题应对方法</li>
-                            </ul>
-                        </div>
-                        <!-- Quadrant 3: Bottom Left -->
-                        <div class="quadrant border-r">
-                            <div class="quadrant-title bottom-2 left-2 bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm">不适用/误导性</div>
-                             <ul class="list-disc list-inside text-slate-700 mt-2 space-y-2">
-                                <li>对高精地图的强依赖</li>
-                                <li>基于固定交规的决策</li>
-                                <li>标准化的车辆形态</li>
-                            </ul>
-                        </div>
-                        <!-- Quadrant 4: Bottom Right -->
-                        <div class="quadrant">
-                            <div class="quadrant-title bottom-2 right-2 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm">必须寻找新范式</div>
-                             <ul class="list-disc list-inside text-slate-700 mt-2 space-y-2">
-                                <li><strong>富接触物理交互</strong></li>
-                                <li><strong>任务的语言泛化</strong></li>
-                                <li><strong>物理世界常识推理</strong></li>
-                            </ul>
+                        <div class="relative max-w-6xl mx-auto">
+                            <div class="grid grid-cols-2 grid-rows-2 border-4 border-slate-300 rounded-2xl overflow-hidden shadow-2xl">
+                                <!-- 坐标轴标签 -->
+                                <div class="absolute -bottom-16 left-0 w-full text-center text-lg text-slate-600 font-semibold">
+                                    无人驾驶技术成熟度 (← 已充分解决 · 仍面临挑战 →)
+                                </div>
+                                <div class="absolute -left-20 top-0 h-full flex items-center text-lg text-slate-600 font-semibold" style="writing-mode: vertical-rl;">
+                                    与具身智能相似度 (← 高度相似 · 差异巨大 →)
+                                </div>
+                                
+                                <!-- Quadrant 1: 可直接借鉴 -->
+                                <div class="quadrant border-r-2 border-b-2 border-slate-300 bg-gradient-to-br from-green-50 to-emerald-100">
+                                    <div class="absolute top-4 left-4 bg-green-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                                        🎯 可直接借鉴
+                                    </div>
+                                    <ul class="list-none space-y-4 mt-16">
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">3D感知与多传感器融合技术栈</span>
+                                        </li>
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">数据闭环基础设施与工程经验</span>
+                                        </li>
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">大规模深度学习模型训练经验</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Quadrant 2: 需谨慎吸取 -->
+                                <div class="quadrant border-b-2 border-slate-300 bg-gradient-to-br from-yellow-50 to-amber-100">
+                                    <div class="absolute top-4 right-4 bg-yellow-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                                        ⚠️ 需谨慎吸取
+                                    </div>
+                                    <ul class="list-none space-y-4 mt-16">
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">端到端神经网络设计理念</span>
+                                        </li>
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">模仿学习的策略与局限性</span>
+                                        </li>
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">长尾问题的应对方法论</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Quadrant 3: 不适用/误导性 -->
+                                <div class="quadrant border-r-2 border-slate-300 bg-gradient-to-br from-red-50 to-rose-100">
+                                    <div class="absolute bottom-4 left-4 bg-red-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                                        ❌ 不适用/误导性
+                                    </div>
+                                    <ul class="list-none space-y-4 mt-8">
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">对高精地图的强依赖性</span>
+                                        </li>
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">基于固定交通规则的决策逻辑</span>
+                                        </li>
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                                            <span class="font-semibold">标准化车辆形态的假设前提</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Quadrant 4: 必须寻找新范式 -->
+                                <div class="quadrant bg-gradient-to-br from-blue-50 to-indigo-100">
+                                    <div class="absolute bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                                        🚀 必须寻找新范式
+                                    </div>
+                                    <ul class="list-none space-y-4 mt-8">
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                                            <span class="font-black text-blue-700">富接触物理交互控制</span>
+                                        </li>
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                                            <span class="font-black text-blue-700">任务的自然语言泛化</span>
+                                        </li>
+                                        <li class="flex items-center text-slate-700">
+                                            <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                                            <span class="font-black text-blue-700">物理世界常识推理</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 5 & 6: Tabs for Frontiers & Landscape -->
+                <!-- Enhanced Slide 5 & 6: Tabs for Frontiers & Landscape -->
                 <div class="mt-32">
-                    <div class="flex justify-center border-b border-slate-200 mb-8">
-                        <button data-tab="tab-frontiers" class="tab-button active-tab px-6 py-3 font-medium text-lg">学术前沿</button>
-                        <button data-tab="tab-landscape" class="tab-button px-6 py-3 font-medium text-lg">产业格局</button>
-                    </div>
+                    <div class="enhanced-card p-12">
+                        <div class="flex justify-center border-b-2 border-slate-200 mb-12">
+                            <button data-tab="tab-frontiers" class="tab-button active-tab mr-2">🎓 学术前沿</button>
+                            <button data-tab="tab-landscape" class="tab-button ml-2 bg-slate-100 text-slate-600 hover:bg-slate-200">🏢 产业格局</button>
+                        </div>
 
-                    <!-- Tab Content: Frontiers -->
-                    <div id="tab-frontiers" class="tab-content">
-                        <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">学者们正在“大脑”的哪些区域奋战？</h3>
-                        <div class="grid md:grid-cols-3 gap-8 mt-8">
-                            <div class="card p-6">
-                                <h4 class="font-bold text-xl mb-3 text-teal-700">感知模块</h4>
-                                <p class="font-semibold text-slate-800">课题:</p>
-                                <p class="text-slate-600 mb-3">多模态融合、3D场景理解、语言接地。</p>
-                                <p class="font-semibold text-slate-800">进展:</p>
-                                <p class="text-slate-600">静态重建效果好，但动态、泛化和抽象理解是瓶颈。</p>
-                            </div>
-                            <div class="card p-6">
-                                <h4 class="font-bold text-xl mb-3 text-teal-700">认知模块</h4>
-                                <p class="font-semibold text-slate-800">课题:</p>
-                                <p class="text-slate-600 mb-3">世界模型、LLM作为规划器、TAMP。</p>
-                                <p class="font-semibold text-slate-800">进展:</p>
-                                <p class="text-slate-600">LLM任务分解能力强但缺物理常识，WM和TAMP计算复杂。</p>
-                            </div>
-                            <div class="card p-6">
-                                <h4 class="font-bold text-xl mb-3 text-teal-700">行动模块</h4>
-                                <p class="font-semibold text-slate-800">课题:</p>
-                                <p class="text-slate-600 mb-3">IL vs RL、Sim-to-Real鸿沟、富接触操控。</p>
-                                <p class="font-semibold text-slate-800">进展:</p>
-                                <p class="text-slate-600">Sim-to-Real是最大瓶颈之一，富接触任务极具挑战。</p>
+                        <!-- Enhanced Tab Content: Frontiers -->
+                        <div id="tab-frontiers" class="tab-content">
+                            <h3 class="text-3xl font-bold text-slate-800 text-center mb-6 gradient-text">
+                                学者们正在"大脑"的哪些区域奋战？
+                            </h3>
+                            <p class="text-slate-600 text-center mb-12 max-w-4xl mx-auto text-lg">
+                                深入解析当前学术界在具身智能三大核心模块上的研究热点、技术突破与关键瓶颈
+                            </p>
+                            
+                            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                                <div class="enhanced-card p-8 group hover:scale-105">
+                                    <div class="text-5xl mb-6 text-center group-hover:scale-110 transition-transform duration-300">👁️</div>
+                                    <h4 class="font-black text-2xl mb-4 text-teal-700 text-center">感知模块</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="font-bold text-slate-800 mb-2">🔬 研究课题:</p>
+                                            <p class="text-slate-600 leading-relaxed">多模态传感器融合、动态3D场景理解、视觉-语言接地学习</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-slate-800 mb-2">📈 当前进展:</p>
+                                            <p class="text-slate-600 leading-relaxed">静态场景重建效果显著，但动态理解、跨域泛化和抽象概念理解仍是瓶颈</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="enhanced-card p-8 group hover:scale-105">
+                                    <div class="text-5xl mb-6 text-center group-hover:scale-110 transition-transform duration-300">🧠</div>
+                                    <h4 class="font-black text-2xl mb-4 text-teal-700 text-center">认知模块</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="font-bold text-slate-800 mb-2">🔬 研究课题:</p>
+                                            <p class="text-slate-600 leading-relaxed">世界模型构建、LLM作为规划器、任务与运动规划(TAMP)</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-slate-800 mb-2">📈 当前进展:</p>
+                                            <p class="text-slate-600 leading-relaxed">LLM任务分解能力强但缺乏物理常识，世界模型和TAMP计算复杂度高</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="enhanced-card p-8 group hover:scale-105">
+                                    <div class="text-5xl mb-6 text-center group-hover:scale-110 transition-transform duration-300">🦾</div>
+                                    <h4 class="font-black text-2xl mb-4 text-teal-700 text-center">行动模块</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="font-bold text-slate-800 mb-2">🔬 研究课题:</p>
+                                            <p class="text-slate-600 leading-relaxed">模仿学习vs强化学习、Sim-to-Real迁移、富接触精密操控</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-slate-800 mb-2">📈 当前进展:</p>
+                                            <p class="text-slate-600 leading-relaxed">Sim-to-Real鸿沟是最大瓶颈，富接触任务的控制精度极具挑战性</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Tab Content: Landscape -->
-                    <div id="tab-landscape" class="tab-content hidden">
-                        <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">巨头与新秀们的"大脑"架构之争</h3>
-                        <div class="overflow-x-auto card mt-8">
-                            <table class="w-full text-left">
-                                <thead class="bg-slate-50">
-                                    <tr>
-                                        <th class="p-4 font-semibold text-slate-600">公司</th>
-                                        <th class="p-4 font-semibold text-slate-600">感知方案</th>
-                                        <th class="p-4 font-semibold text-slate-600">认知/规划方案</th>
-                                        <th class="p-4 font-semibold text-slate-600">行动/数据策略</th>
-                                        <th class="p-4 font-semibold text-slate-600">核心哲学</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-200">
-                                    <tr><td class="p-4 font-bold">Tesla</td><td class="p-4">纯视觉，端到端</td><td class="p-4">统一神经网络</td><td class="p-4">车队学习，动捕数据</td><td class="p-4">端到端纯粹主义</td></tr>
-                                    <tr><td class="p-4 font-bold">Figure AI</td><td class="p-4">多模态VLA</td><td class="p-4">"快慢思考"解耦架构 (VLM+策略网络)</td><td class="p-4">遥操作+RL，与OpenAI合作</td><td class="p-4">务实的混合主义</td></tr>
-                                    <tr><td class="p-4 font-bold">Sanctuary</td><td class="p-4">多模态</td><td class="p-4">混合认知架构 (含符号推理)</td><td class="p-4">仿真+人在回路</td><td class="p-4">安全可审计的混合主义</td></tr>
-                                    <tr><td class="p-4 font-bold">DeepMind</td><td class="p-4">基础模型</td><td class="p-4">VLA (RT-2)</td><td class="p-4">网页级+机器人数据</td><td class="p-4">"大脑"技术赋能者</td></tr>
-                                    <tr><td class="p-4 font-bold">穹彻智能</td><td class="p-4">(未详述)</td><td class="p-4">实体世界模型+力中心模型</td><td class="p-4">"生产伴随式"数据采集</td><td class="p-4">务实的数据工程派</td></tr>
-                                    <tr><td class="p-4 font-bold">星尘智能</td><td class="p-4">力/触/视觉</td><td class="p-4">端到端大模型 (DFAI)</td><td class="p-4">软硬件协同设计，高性能硬件采集</td><td class="p-4">工程与AI深度耦合</td></tr>
-                                </tbody>
-                            </table>
+                        <!-- Enhanced Tab Content: Landscape -->
+                        <div id="tab-landscape" class="tab-content hidden">
+                            <h3 class="text-3xl font-bold text-slate-800 text-center mb-6 gradient-text">
+                                巨头与新秀们的"大脑"架构之争
+                            </h3>
+                            <p class="text-slate-600 text-center mb-12 max-w-4xl mx-auto text-lg">
+                                全面对比分析各大公司在具身智能技术路线上的战略选择与核心差异化
+                            </p>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left bg-white rounded-2xl shadow-xl overflow-hidden">
+                                    <thead class="bg-gradient-to-r from-slate-100 to-slate-200">
+                                        <tr>
+                                            <th class="p-6 font-black text-slate-700 text-lg">🏢 公司</th>
+                                            <th class="p-6 font-black text-slate-700 text-lg">👁️ 感知方案</th>
+                                            <th class="p-6 font-black text-slate-700 text-lg">🧠 认知/规划</th>
+                                            <th class="p-6 font-black text-slate-700 text-lg">🦾 行动/数据</th>
+                                            <th class="p-6 font-black text-slate-700 text-lg">💡 核心哲学</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200">
+                                        <tr class="hover:bg-slate-50 transition-colors duration-200">
+                                            <td class="p-6 font-black text-lg text-slate-800">Tesla</td>
+                                            <td class="p-6 text-slate-700">纯视觉端到端神经网络</td>
+                                            <td class="p-6 text-slate-700">统一神经网络架构</td>
+                                            <td class="p-6 text-slate-700">车队学习，影子模式数据采集</td>
+                                            <td class="p-6 text-slate-700">端到端纯粹主义</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50 transition-colors duration-200">
+                                            <td class="p-6 font-black text-lg text-slate-800">Figure AI</td>
+                                            <td class="p-6 text-slate-700">多模态视觉-语言-行动模型</td>
+                                            <td class="p-6 text-slate-700">"快慢思考"解耦架构</td>
+                                            <td class="p-6 text-slate-700">遥操作+强化学习，与OpenAI深度合作</td>
+                                            <td class="p-6 text-slate-700">务实的混合主义</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50 transition-colors duration-200">
+                                            <td class="p-6 font-black text-lg text-slate-800">Sanctuary</td>
+                                            <td class="p-6 text-slate-700">多模态感知融合</td>
+                                            <td class="p-6 text-slate-700">混合认知架构(含符号推理)</td>
+                                            <td class="p-6 text-slate-700">仿真环境+人在回路训练</td>
+                                            <td class="p-6 text-slate-700">安全可审计的混合主义</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50 transition-colors duration-200">
+                                            <td class="p-6 font-black text-lg text-slate-800">DeepMind</td>
+                                            <td class="p-6 text-slate-700">大规模基础模型</td>
+                                            <td class="p-6 text-slate-700">视觉-语言-行动模型(RT-2)</td>
+                                            <td class="p-6 text-slate-700">网页级数据+机器人数据联合训练</td>
+                                            <td class="p-6 text-slate-700">"大脑"技术赋能者</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50 transition-colors duration-200">
+                                            <td class="p-6 font-black text-lg text-slate-800">穹彻智能</td>
+                                            <td class="p-6 text-slate-700">多模态感知系统</td>
+                                            <td class="p-6 text-slate-700">实体世界模型+力中心控制模型</td>
+                                            <td class="p-6 text-slate-700">"生产伴随式"数据采集策略</td>
+                                            <td class="p-6 text-slate-700">务实的数据工程派</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50 transition-colors duration-200">
+                                            <td class="p-6 font-black text-lg text-slate-800">星尘智能</td>
+                                            <td class="p-6 text-slate-700">力觉/触觉/视觉融合</td>
+                                            <td class="p-6 text-slate-700">端到端大模型(DFAI)</td>
+                                            <td class="p-6 text-slate-700">软硬件协同设计，高性能硬件采集</td>
+                                            <td class="p-6 text-slate-700">工程与AI深度耦合</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Part 3: Our Solution -->
-        <section id="part3" class="py-20">
-            <div class="container mx-auto px-4">
+        <!-- Part 3: Enhanced Our Solution -->
+        <section id="part3" class="py-32">
+            <div class="container mx-auto px-6">
                 <h2 class="section-title">我们的解决方案与技术壁垒</h2>
+                <p class="section-subtitle">
+                    基于深度理论洞察，提出突破性的双环学习架构，构建真正具备自主进化能力的具身智能大脑
+                </p>
 
-                <!-- Slide 7: Our Solution Diagram -->
-                <div class="mt-16">
-                     <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">破局之道：构建一个可持续自我进化的“活”大脑</h3>
-                    <p class="text-slate-600 text-center mb-12 max-w-3xl mx-auto">我们提出“好奇心-修正”双环学习系统。它不仅能从数据中学习，更能主动地、有策略地获取最有价值的数据，并持续地自我纠错。</p>
-                    <div class="card p-8 max-w-4xl mx-auto">
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <div class="text-center">
-                                <h4 class="font-bold text-2xl text-teal-700 mb-4">外环：好奇心驱动</h4>
-                                <p class="text-slate-600 mb-4">通过概率世界模型识别“未知”，并将其转化为内在探索奖励，驱动智能体主动探索，高效填补认知空白。</p>
-                                <div class="text-6xl">💡</div>
-                                <p class="font-semibold mt-2">主动探索未知</p>
+                <!-- Enhanced Slide 7: Our Solution Diagram -->
+                <div class="mt-20">
+                    <div class="enhanced-card p-12 mb-16">
+                        <h3 class="text-3xl font-bold text-slate-800 text-center mb-6 gradient-text">
+                            破局之道：构建可持续自我进化的"活"大脑
+                        </h3>
+                        <p class="text-slate-600 text-center mb-16 max-w-5xl mx-auto text-lg leading-relaxed">
+                            我们提出革命性的"好奇心-修正"双环学习系统。它不仅能从既有数据中高效学习，更能主动地、有策略地获取最有价值的新数据，并通过持续的自我纠错机制实现真正的智能进化。
+                        </p>
+                        
+                        <!-- 增强的双环系统可视化 -->
+                        <div class="max-w-7xl mx-auto">
+                            <div class="relative h-[600px] flex items-center justify-center">
+                                <!-- 外环：好奇心驱动 -->
+                                <div class="absolute w-96 h-96 border-8 border-blue-300 rounded-full opacity-70 animate-pulse"></div>
+                                <div class="absolute w-96 h-96 border-dashed border-4 border-blue-400 rounded-full" style="animation: spin 20s linear infinite;"></div>
+                                
+                                <!-- 内环：预测修正 -->
+                                <div class="absolute w-64 h-64 border-8 border-teal-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+                                <div class="absolute w-64 h-64 border-dashed border-4 border-teal-500 rounded-full" style="animation: spin 15s linear infinite reverse;"></div>
+                                
+                                <!-- 增强的中心核心 -->
+                                <div class="absolute w-32 h-32 bg-gradient-to-br from-teal-500 via-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl pulse-glow">
+                                    <span class="text-white text-4xl font-bold">🧠</span>
+                                </div>
+                                
+                                <!-- 外环标签和描述 -->
+                                <div class="absolute -top-12 left-1/2 -translate-x-1/2 text-center">
+                                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-full font-black text-lg mb-3 shadow-xl">
+                                        🔍 外环：好奇驱动探索
+                                    </div>
+                                </div>
+                                
+                                <!-- 内环标签 -->
+                                <div class="absolute -bottom-12 left-1/2 -translate-x-1/2 text-center">
+                                    <div class="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-full font-black text-lg mb-3 shadow-xl">
+                                        ⚙️ 内环：预测误差修正
+                                    </div>
+                                </div>
+                                
+                                <!-- 增强的流动箭头 -->
+                                <div class="absolute top-8 right-24 text-blue-500 text-4xl transform rotate-45 floating-animation">
+                                    ➤
+                                </div>
+                                <div class="absolute bottom-8 left-24 text-blue-500 text-4xl transform -rotate-45 floating-animation" style="animation-delay: 1s;">
+                                    ➤
+                                </div>
+                                <div class="absolute top-20 left-20 text-teal-500 text-3xl transform -rotate-90 floating-animation" style="animation-delay: 0.5s;">
+                                    ↻
+                                </div>
+                                <div class="absolute bottom-20 right-20 text-teal-500 text-3xl transform rotate-90 floating-animation" style="animation-delay: 1.5s;">
+                                    ↺
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <h4 class="font-bold text-2xl text-teal-700 mb-4">内环：预测修正</h4>
-                                <p class="text-slate-600 mb-4">基于自由能理论，利用世界模型的预测与现实反馈的误差，强制模型对齐物理规律，实现持续的自监督学习。</p>
-                                <div class="text-6xl">⚙️</div>
-                                <p class="font-semibold mt-2">被动修正错误</p>
+                            
+                            <!-- 增强的详细说明卡片 -->
+                            <div class="grid md:grid-cols-2 gap-12 mt-16">
+                                <!-- 外环卡片 -->
+                                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border-l-8 border-blue-500 shadow-md">
+                                    <div class="flex items-center mb-6">
+                                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
+                                            <span class="text-white text-3xl">💡</span>
+                                        </div>
+                                        <h4 class="font-black text-2xl text-blue-800">外环：好奇驱动探索</h4>
+                                    </div>
+                                    <p class="text-slate-700 mb-6 leading-relaxed text-lg">
+                                        通过概率世界模型识别"未知"，并将其转化为内在探索奖励，驱动智能体主动探索，高效填补认知空白。
+                                    </p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">
+                                            🎯 主动探索未知领域
+                                        </span>
+                                        <div class="text-blue-500 text-3xl">🔍</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 内环卡片 -->
+                                <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-8 border-l-8 border-teal-500 shadow-md">
+                                    <div class="flex items-center mb-6">
+                                        <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
+                                            <span class="text-white text-3xl">⚙️</span>
+                                        </div>
+                                        <h4 class="font-black text-2xl text-teal-800">内环：预测误差修正</h4>
+                                    </div>
+                                    <p class="text-slate-700 mb-6 leading-relaxed text-lg">
+                                        基于自由能理论，利用世界模型预测与现实反馈的误差信号，强制模型持续对齐物理规律，实现高效的自监督学习与认知修正。
+                                    </p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="bg-teal-200 text-teal-800 px-3 py-1 rounded-full text-sm font-bold">
+                                            🔧 被动修正认知错误
+                                        </span>
+                                        <div class="text-teal-500 text-3xl">🎯</div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                         <div class="relative mt-8 h-20 flex items-center justify-center">
-                            <div class="absolute w-full h-16 border-2 border-dashed border-teal-300 rounded-full"></div>
-                            <div class="absolute -left-4 top-1/2 -translate-y-1/2 text-teal-500 text-3xl">↻</div>
-                            <div class="absolute -right-4 top-1/2 -translate-y-1/2 text-teal-500 text-3xl">↺</div>
-                            <div class="bg-white px-4 font-bold text-slate-700 z-10">双环学习系统</div>
+                            
+                            <!-- 增强的系统特性说明 -->
+                            <div class="mt-16 bg-gradient-to-br from-white to-slate-50 rounded-2xl p-10 shadow-2xl border border-slate-200">
+                                <h5 class="font-black text-2xl text-slate-800 mb-8 text-center gradient-text">双环协同进化机制</h5>
+                                <div class="grid md:grid-cols-3 gap-8 text-center">
+                                    <div class="flex flex-col items-center">
+                                        <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-teal-400 rounded-full flex items-center justify-center mb-4 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                                            <span class="text-white text-3xl">🔄</span>
+                                        </div>
+                                        <h6 class="font-semibold text-slate-800 mb-2">持续学习进化</h6>
+                                        <p class="text-sm text-slate-600">外环主动探索新知识边界，内环持续巩固已有认知体系</p>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <div class="w-20 h-20 bg-gradient-to-br from-teal-400 to-blue-400 rounded-full flex items-center justify-center mb-4 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                                            <span class="text-white text-3xl">⚡</span>
+                                        </div>
+                                        <h6 class="font-semibold text-slate-800 mb-2">高效环境适应</h6>
+                                        <p class="text-sm text-slate-600">快速识别环境动态变化并实时调整行为策略</p>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center mb-4 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                                            <span class="text-white text-3xl">🎯</span>
+                                        </div>
+                                        <h6 class="font-semibold text-slate-800 mb-2">自主纠错能力</h6>
+                                        <p class="text-sm text-slate-600">通过预测误差信号自动识别并修正模型认知偏差</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>具身智能技术路线报告 - 构建新一代具身智能大脑</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .section-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .section-card:hover {
+            border-left-color: #3b82f6;
+            transform: translateX(4px);
+        }
+        .reference-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .dual-loop-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 2rem 0;
+        }
+        .loop-outer {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 3px solid #3b82f6;
+            border-radius: 50%;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loop-inner {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.1);
+        }
+        .world-model {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+        .loop-label {
+            position: absolute;
+            font-weight: bold;
+            color: #374151;
+        }
+        .curiosity-label {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #3b82f6;
+        }
+        .correction-label {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #10b981;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">具身智能技术路线报告</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600">版本 1.0 | 2025年1月</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 侧边导航 -->
+    <div class="flex">
+        <aside class="w-64 bg-white shadow-lg h-screen sticky top-16 overflow-y-auto">
+            <nav class="p-4">
+                <ul class="space-y-2">
+                    <li><a href="#vision" class="block py-2 px-3 rounded hover:bg-blue-50 text-blue-600">核心理念与愿景</a></li>
+                    <li><a href="#philosophy" class="block py-2 px-3 rounded hover:bg-blue-50 text-blue-600">架构哲学</a></li>
+                    <li><a href="#architecture" class="block py-2 px-3 rounded hover:bg-blue-50 text-blue-600">大脑核心架构</a></li>
+                    <li><a href="#modules" class="block py-2 px-3 rounded hover:bg-blue-50 text-blue-600">技术栈模块化解析</a></li>
+                    <li><a href="#data" class="block py-2 px-3 rounded hover:bg-blue-50 text-blue-600">数据与训练飞轮</a></li>
+                    <li><a href="#assessment" class="block py-2 px-3 rounded hover:bg-blue-50 text-blue-600">可行性评估与风险缓解</a></li>
+                    <li><a href="#conclusion" class="block py-2 px-3 rounded hover:bg-blue-50 text-blue-600">结论</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 主要内容 -->
+        <main class="flex-1 p-8 max-w-4xl">
+            <!-- 标题区域 -->
+            <div class="gradient-bg text-white p-8 rounded-lg mb-8">
+                <h1 class="text-4xl font-bold mb-4">技术路线报告：构建新一代具身智能大脑</h1>
+                <p class="text-xl opacity-90">超越"大力出奇迹"，探索数据高效、安全可信的具身智能发展路径</p>
+                <div class="mt-4 text-sm opacity-80">
+                    <span>版本：1.0</span> | <span>日期：2025年1月</span>
+                </div>
+            </div>
+
+            <!-- 1. 核心理念与愿景 -->
+            <section id="vision" class="section-card bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">1. 核心理念与愿景：超越"大力出奇迹"</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-3">核心判断</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        我们的核心判断是：具身智能（EAI）无法复刻大型语言模型（LLM）或无人驾驶"规模即一切"（scaling-is-all-you-need）的成功路径<span class="reference-link" onclick="showReference(1)"> [1]</span>。物理世界的复杂性、对安全性的严苛要求、以及高质量交互数据的稀缺性<span class="reference-link" onclick="showReference(2)"> [2]</span>，决定了我们必须另辟蹊径。
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-3">愿景定义</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                        <p class="text-gray-700 leading-relaxed">
+                            我们的愿景是构建一个<strong>"受物理规律约束、由内在动机驱动、可持续自我进化"</strong>的具身大脑。它并非一个单一的、端到端的黑箱模型<span class="reference-link" onclick="showReference(3)"> [3]</span>，而是一个<strong>可解释、可干预、数据高效的混合认知架构 (Hybrid Cognitive Architecture)</strong><span class="reference-link" onclick="showReference(4)"> [4]</span>。
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">核心特征</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>实现智能体、身体与环境三者的"紧密耦合"<span class="reference-link" onclick="showReference(5)"> [5]</span></li>
+                        <li>在非结构化的动态环境中展现真正的适应性与泛化能力<span class="reference-link" onclick="showReference(6)"> [6]</span></li>
+                        <li>通过持续的感知-行动循环进行自我学习和进化</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 2. 架构哲学 -->
+            <section id="philosophy" class="section-card bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">2. 架构哲学：混合架构是通往通用智能的唯一路径</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-3">端到端架构的根本性天花板</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        我们坚信，纯粹的端到端架构（如特斯拉的路线<span class="reference-link" onclick="showReference(7)"> [7]</span>）在通用具身智能领域存在根本性天花板：
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                            <h4 class="font-semibold text-red-700 mb-2">安全与信任</h4>
+                            <p class="text-sm text-gray-700">物理世界的"幻觉"是灾难性的。无法解释和审计的"黑箱"模型难以在关键任务中被信任<span class="reference-link" onclick="showReference(8)"> [8]</span>。</p>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                            <h4 class="font-semibold text-yellow-700 mb-2">数据效率</h4>
+                            <p class="text-sm text-gray-700">端到端模型需要海量数据来学习隐含的物理规律和因果关系。对于交互成本极高的机器人领域，这是一条极其昂贵的道路<span class="reference-link" onclick="showReference(10)"> [10]</span>。</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+                            <h4 class="font-semibold text-purple-700 mb-2">任务评估</h4>
+                            <p class="text-sm text-gray-700">复杂任务的奖励函数难以定义，纯粹的端到端学习往往会陷入局部最优或产生无意义的行为。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">务实的混合主义（Hybridism）</h3>
+                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                        <p class="text-gray-700 leading-relaxed">
+                            我们的选择是务实的<strong>混合主义（Hybridism）</strong>，类似于Figure AI的"快慢思考"系统<span class="reference-link" onclick="showReference(11)"> [11]</span>和Sanctuary AI的认知架构<span class="reference-link" onclick="showReference(12)"> [12]</span>。我们将构建一个模块化、但模块间可联合优化的系统，它兼具模块化架构的可解释性、安全性<span class="reference-link" onclick="showReference(13)"> [13]</span>与端到端架构的整体优化潜力。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 大脑核心架构 -->
+            <section id="architecture" class="section-card bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">3. "大脑"核心架构：基于世界模型的"好奇心-修正"双环学习系统</h2>
+                
+                <div class="mb-6">
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        我们技术路线的核心是<strong>世界模型 (World Model, WM)</strong>。它不仅是规划和推理的基础<span class="reference-link" onclick="showReference(14)"> [14]</span>，更是我们整个学习框架的中心枢纽。我们设计了一个创新的<strong>双环学习机制</strong>来驱动世界模型的持续进化。
+                    </p>
+                </div>
+
+                <!-- 双环学习系统可视化 -->
+                <div class="dual-loop-container">
+                    <div class="loop-outer">
+                        <div class="loop-inner">
+                            <div class="world-model">
+                                世界<br>模型
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loop-label curiosity-label">外环：好奇心驱动探索</div>
+                    <div class="loop-label correction-label">内环：预测修正学习</div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- 外环：好奇心驱动的主动探索 -->
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-blue-700">3.1. 外环：好奇心驱动的主动探索</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-semibold mb-2">核心思想</h4>
+                            <p class="text-sm text-gray-700 mb-3">
+                                智能体不应仅被动接收任务，还应主动探索未知。这是具身智能区别于离身AI的关键特征<span class="reference-link" onclick="showReference(15)"> [15]</span>。
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold mb-2">技术实现</h4>
+                            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                                <li>世界模型是一个<strong>概率模型</strong>，输出预测的"置信度"</li>
+                                <li><strong>好奇心模块</strong>将"低置信度"区域转化为内在探索奖励</li>
+                                <li>智能体被内在奖励驱动，主动与不熟悉的物体交互，高效补全世界模型</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- 内环：基于自由能理论的预测修正 -->
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-green-700">3.2. 内环：基于自由能理论的预测修正</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-semibold mb-2">核心思想</h4>
+                            <p class="text-sm text-gray-700 mb-3">
+                                当智能体的预测与现实产生偏差时（Surprise），必须最小化这种偏差以更好地适应环境。这借鉴了认知科学中的<strong>自由能原理 (Free Energy Principle)</strong>。
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold mb-2">技术实现</h4>
+                            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                                <li>世界模型持续进行<strong>前向预测</strong><span class="reference-link" onclick="showReference(16)"> [16]</span></li>
+                                <li>计算预测结果与真实传感器反馈的<strong>预测误差</strong></li>
+                                <li>误差信号作为自监督学习信号，强制修正世界模型和感知模块参数</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                    <p class="text-gray-700 leading-relaxed">
+                        通过这两个循环的协同工作，我们的大脑能够<strong>主动减少不确定性（好奇心），并持续修正对世界的认知（预测修正）</strong>，从而构建一个动态、高保真的世界表征。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 4. 技术栈模块化解析 -->
+            <section id="modules" class="section-card bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">4. 技术栈模块化解析：分层学习与联合优化</h2>
+                
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    我们的大脑在功能上分为感知、认知、行动三大模块<span class="reference-link" onclick="showReference(17)"> [17]</span>，但它们并非孤立的流水线<span class="reference-link" onclick="showReference(18)"> [18]</span>，而是通过我们设计的<strong>分层强化学习（Hierarchical RL）框架</strong>和<strong>可微的物理约束</strong>进行深度耦合。
+                </p>
+
+                <div class="grid gap-6">
+                    <!-- 感知模块 -->
+                    <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-400">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-700">4.1. 感知模块 (Perception)</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-semibold mb-2">核心任务</h4>
+                            <p class="text-gray-700 mb-3">构建动态三维世界模型<span class="reference-link" onclick="showReference(19)"> [19]</span>。</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold mb-2">技术选型</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li><strong>多模态传感器融合</strong>技术（视觉、深度、力、触觉）<span class="reference-link" onclick="showReference(20)"> [20]</span></li>
+                                <li>利用前沿的<strong>3D高斯溅射 (GS-SLAM)</strong> 或NeRFs创建密集的世界表征<span class="reference-link" onclick="showReference(21)"> [21]</span></li>
+                                <li>输出包含物理属性、功能可见性<span class="reference-link" onclick="showReference(22)"> [22]</span>和置信度的概率化世界状态</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 认知模块 -->
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-700">4.2. 认知模块 (Cognition)</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-semibold mb-2">核心任务</h4>
+                            <p class="text-gray-700 mb-3">任务分解与长时程规划<span class="reference-link" onclick="showReference(23)"> [23]</span>。</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold mb-2">技术选型：分层规划</h4>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded border">
+                                    <h5 class="font-semibold text-blue-600">高层规划器</h5>
+                                    <p class="text-sm text-gray-700">利用<strong>LLM</strong>强大的世界知识和推理能力，将用户的自然语言指令分解为一系列符号化的子任务序列<span class="reference-link" onclick="showReference(24)"> [24]</span>。</p>
+                                </div>
+                                <div class="bg-white p-3 rounded border">
+                                    <h5 class="font-semibold text-blue-600">中层规划器</h5>
+                                    <p class="text-sm text-gray-700">分层强化学习（HRL）的策略网络。接收子任务，选择合适的底层技能，与世界模型交互，在"想象"中评估并优化技能序列<span class="reference-link" onclick="showReference(25)"> [25]</span>。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 行动模块 -->
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-400">
+                        <h3 class="text-xl font-semibold mb-4 text-green-700">4.3. 行动模块 (Action)</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-semibold mb-2">核心任务</h4>
+                            <p class="text-gray-700 mb-3">将规划好的技能转化为精确、稳定的物理运动<span class="reference-link" onclick="showReference(27)"> [27]</span>。</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold mb-2">技术选型</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li><strong>技能库 (Skill Library)</strong>：通过模仿学习和强化学习预训练的基础运动技能<span class="reference-link" onclick="showReference(28)"> [28]</span></li>
+                                <li><strong>底层控制器</strong>：采用力/阻抗控制方案，应对富接触任务中的不确定性<span class="reference-link" onclick="showReference(29)"> [29]</span></li>
+                                <li><strong>物理信息网络 (PINN) 约束</strong>：将机器人动力学模型作为物理约束嵌入神经网络，显著降低数据需求</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. 数据与训练飞轮 -->
+            <section id="data" class="section-card bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">5. 数据与训练飞轮：务实的数据工程策略</h2>
+                
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    我们直面具身智能最核心的瓶颈——<strong>数据</strong><span class="reference-link" onclick="showReference(30)"> [30]</span>，并为此设计了一套务实、高效的数据工程飞轮。
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                        <h3 class="text-lg font-semibold mb-3 text-orange-700">仿真增强与跨形态迁移</h3>
+                        <p class="text-sm text-gray-700">
+                            我们承认真实世界数据采集的昂贵<span class="reference-link" onclick="showReference(31)"> [31]</span>。利用仿真器，将有限的、不同机器人形态的现有数据集（如ALOHA的演示数据<span class="reference-link" onclick="showReference(32)"> [32]</span>），通过动力学模型优化和领域随机化<span class="reference-link" onclick="showReference(33)"> [33]</span>，"增强"并迁移到我们自己的机器人形态上。
+                        </p>
+                    </div>
+
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                        <h3 class="text-lg font-semibold mb-3 text-blue-700">互联网知识的物理"接地"</h3>
+                        <p class="text-sm text-gray-700">
+                            利用大规模视频数据（如YouTube），训练一个强大的<strong>视觉-语言-动作 (VLA) 模型</strong>作为我们技能库的初始化模型<span class="reference-link" onclick="showReference(34)"> [34]</span>。通过双环学习系统，在与物理世界的交互中，对其进行快速的"接地"和微调。
+                        </p>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                        <h3 class="text-lg font-semibold mb-3 text-green-700">分层监督与高效利用</h3>
+                        <p class="text-sm text-gray-700 mb-3">
+                            混合架构允许在多个中间层进行监督：
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-600">
+                            <li><strong>感知层</strong>：3D重建真值监督</li>
+                            <li><strong>认知层</strong>：LLM规划合理性或人类反馈监督</li>
+                            <li><strong>行动层</strong>：模仿学习专家数据监督</li>
+                        </ul>
+                        <p class="text-sm text-gray-700 mt-2">
+                            这种分层监督使每一份交互数据都能被"一鱼多吃"，实现数据的高效利用。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. 可行性评估与风险缓解 -->
+            <section id="assessment" class="section-card bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">6. 可行性评估与风险缓解</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- 优势与可行性 -->
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-green-700">优势与可行性</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <div>
+                                    <strong class="text-green-700">数据高效</strong>
+                                    <p class="text-sm text-gray-700">通过Model-Based方法、仿真增强和分层监督，极大降低了对昂贵真实世界数据的依赖。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <div>
+                                    <strong class="text-green-700">高安全与可解释性</strong>
+                                    <p class="text-sm text-gray-700">混合架构和中间状态输出，使得系统行为易于理解、调试和审计，这对于商业落地至关重要<span class="reference-link" onclick="showReference(35)"> [35]</span>。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <div>
+                                    <strong class="text-green-700">高成长上限</strong>
+                                    <p class="text-sm text-gray-700">"好奇心-修正"双环学习系统赋予了大脑持续自我进化的能力，有望突破模仿学习的性能天花板<span class="reference-link" onclick="showReference(36)"> [36]</span>。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 主要风险与缓解策略 -->
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-red-700">主要风险与缓解策略</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2">⚠</span>
+                                <div>
+                                    <strong class="text-red-700">世界模型保真度</strong><span class="reference-link" onclick="showReference(37)"> [37]</span>
+                                    <p class="text-sm text-gray-700"><strong>缓解</strong>：初期不追求完美的物理仿真，而是构建一个"足够好"的、能预测短期因果和关键接触事件的模型。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2">⚠</span>
+                                <div>
+                                    <strong class="text-red-700">Sim-to-Real Gap</strong><span class="reference-link" onclick="showReference(38)"> [38]</span>
+                                    <p class="text-sm text-gray-700"><strong>缓解</strong>：结合领域随机化和少量真实世界数据的微调，并重点研发能够弥合差距的力/触觉感知与控制算法。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2">⚠</span>
+                                <div>
+                                    <strong class="text-red-700">系统集成复杂度</strong>
+                                    <p class="text-sm text-gray-700"><strong>缓解</strong>：采用敏捷开发，优先打通"感知-认知-行动"的最小闭环，再逐步增加各模块的复杂度和性能。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. 结论 -->
+            <section id="conclusion" class="section-card bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">7. 结论</h2>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border-l-4 border-blue-400">
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        本技术路线放弃了不切实际的"规模化"幻想，回归具身智能的第一性原理——<strong>智能产生于身体与环境的交互之中</strong><span class="reference-link" onclick="showReference(39)"> [39]</span>。
+                    </p>
+                    
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        通过构建一个以世界模型为核心、以"好奇心-修正"双环为驱动、以混合架构为骨架的具身大脑，我们有望在数据成本可控、安全可信的前提下，实现机器人在非结构化环境中的高级泛化能力。
+                    </p>
+                    
+                    <p class="text-gray-700 leading-relaxed font-semibold">
+                        这是一条更艰难，但我们坚信是更直接通往通用人工智能（AGI）的道路<span class="reference-link" onclick="showReference(40)"> [40]</span>。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 页脚 -->
+            <footer class="text-center text-gray-500 text-sm mt-12 pt-8 border-t">
+                <p>&copy; 2025 具身智能技术路线报告. 版权所有.</p>
+                <p class="mt-2">基于深度调研与前沿技术分析构建</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 引用文献模态框 -->
+    <div id="referenceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-96 overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold">参考文献</h3>
+                        <button onclick="closeReference()" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="referenceContent" class="text-sm text-gray-700">
+                        <!-- 引用内容将在这里显示 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 引用文献数据
+        const references = {
+            1: "Embodied Intelligence: The Key to Unblocking Generalized Artificial Intelligence - arXiv",
+            2: "A Comprehensive Survey on Embodied Intelligence: Advancements, Challenges, and Future Perspectives",
+            3: "Embodied Intelligence - ResearchGate",
+            4: "Embodied Artificial Intelligence - University of Cambridge",
+            5: "Embodied AI: A Brief Analysis - ResearchGate",
+            6: "Embodied AI: How do AI-powered robots perceive the world? - Qualcomm",
+            7: "具身智能研究的关键问题: 自主感知、行动与进化 - 自动化学报",
+            8: "Embodied AI Explained: Principles, Applications, and Future Perspectives",
+            9: "A Call for Embodied AI - arXiv",
+            10: "Cognition as a dynamic system: Principles from embodiment",
+            11: "Mapping the Landscape of Human-Level Artificial General Intelligence",
+            12: "Development of intelligent robots in the wave of embodied intelligence",
+            13: "Cognitive Architectures for Autonomous Robots: Towards Human-Level Autonomy and Beyond",
+            14: "Vision Language Action Models (VLA) Overview: LeRobot Policies Demo",
+            15: "A Survey on Integration of Large Language Models with Intelligent Robots",
+            16: "Sam Altman says OpenAI strategy is to solve AI first, then connect it with robotics",
+            17: "Challenges and Solutions for Autonomous Ground Robot Scene Understanding and Navigation",
+            18: "Paper List and Resource Repository for Embodied AI",
+            19: "BIP3D: Bridging 2D Images and 3D Perception for Embodied Intelligence",
+            20: "Multi-Modal Perception with Vision, Language, and Touch for Robot Manipulation",
+            21: "Embodied AI with Foundation Models for Mobile Service Robots: A Systematic Review",
+            22: "Chat with the environment: Interactive multimodal perception using large language models",
+            23: "今天，我们来聊聊科技热词\"具身智能大模型\"",
+            24: "Aligning Cyber Space with Physical World: A Comprehensive Survey on Embodied AI",
+            25: "Structured World Models from Human Videos",
+            26: "Control with Spatial World Models",
+            27: "Partially Observable Task and Motion Planning with Uncertainty and Risk Awareness",
+            28: "A Survey of Optimization-based Task and Motion Planning: From Classical To Learning Approaches",
+            29: "Learning Geometric Reasoning Networks For Robot Task And Motion Planning",
+            30: "Robust and Safe Task-Driven Planning and Navigation for Heterogeneous Multi-Robot Teams",
+            31: "NeurIPS 2024 Datasets Benchmarks",
+            32: "NeurIPS 2023 Datasets-Benchmarks",
+            33: "Reconciling Reality through Simulation: A Real-to-Sim-to-Real Approach for Robust Manipulation",
+            34: "Reinforcement and Imitation Learning for Diverse Visuomotor Skills",
+            35: "Learning Force Control for Contact-rich Manipulation Tasks with Rigid Position-controlled Robots",
+            36: "A Survey on Imitation Learning for Contact-Rich Tasks in Robotics",
+            37: "Learning Force Control for Contact-Rich Manipulation Tasks With Rigid Position-Controlled Robots",
+            38: "Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey",
+            39: "Natural Language Can Help Bridge the Sim2Real Gap",
+            40: "Natural Humanoid Walk Using Reinforcement Learning"
+        };
+
+        function showReference(id) {
+            const modal = document.getElementById('referenceModal');
+            const content = document.getElementById('referenceContent');
+            content.innerHTML = `<strong>[${id}]</strong> ${references[id] || '引用文献未找到'}`;
+            modal.classList.remove('hidden');
+        }
+
+        function closeReference() {
+            document.getElementById('referenceModal').classList.add('hidden');
+        }
+
+        // 点击模态框外部关闭
+        document.getElementById('referenceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeReference();
+            }
+        });
+
+        // 侧边导航平滑滚动
+        document.querySelectorAll('aside a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滚动时激活导航链接
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('aside a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('bg-blue-100', 'text-blue-800');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('bg-blue-100', 'text-blue-800');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
