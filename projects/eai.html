@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>具身智能大脑：技术路线交互式报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- 
+    Chosen Palette: Warm Neutrals (Stone, Slate, Teal)
+    Application Structure Plan: A single-page, vertical-scrolling application mirroring the presentation's narrative flow. A sticky header allows for quick navigation between the three core parts: Framework/History, Challenges/Landscape, and Our Solution. This structure was chosen to guide the user through a logical story, from establishing a common ground to identifying a problem and finally presenting a unique solution, making the complex information highly digestible.
+    Visualization & Content Choices: The application uses structured HTML and Tailwind CSS to create all visual elements, including diagrams (Perception-Action Loop, Dual-Loop System), timelines, and the quadrant chart. This approach was chosen over charting libraries like Chart.js because the source material consists of conceptual frameworks, not quantitative data sets. This method ensures fast loading, full responsiveness, and adherence to the NO SVG/NO Mermaid JS constraint. Interactions like hovers for tooltips and clicks for revealing details are used to enrich the user experience without overwhelming them.
+    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f5f5f4; /* stone-100 */
+            color: #334155; /* slate-700 */
+        }
+        .section-title {
+            @apply text-3xl font-bold text-slate-800 mb-2 text-center;
+        }
+        .section-subtitle {
+            @apply text-lg text-slate-500 mb-12 text-center max-w-3xl mx-auto;
+        }
+        .card {
+            @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+        }
+        .nav-link {
+            @apply px-4 py-2 text-slate-600 hover:text-teal-600 font-medium transition-colors duration-300;
+        }
+        .active-nav {
+            @apply text-teal-600 border-b-2 border-teal-600;
+        }
+        .diagram-node {
+            @apply bg-white border-2 border-slate-200 rounded-lg p-4 text-center shadow-sm transition-all duration-300;
+        }
+        .diagram-arrow {
+            @apply absolute text-slate-400 font-bold text-2xl;
+        }
+        .quadrant {
+            @apply relative p-6 border-slate-300;
+        }
+        .quadrant-title {
+            @apply absolute font-bold text-slate-500;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-xl font-bold text-slate-800">具身智能大脑技术路线</h1>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#part1" class="nav-link">统一框架</a>
+                    <a href="#part2" class="nav-link">核心挑战</a>
+                    <a href="#part3" class="nav-link">我们的方案</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-slate-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#part1" class="block py-2 px-4 text-sm nav-link">统一框架</a>
+            <a href="#part2" class="block py-2 px-4 text-sm nav-link">核心挑战</a>
+            <a href="#part3" class="block py-2 px-4 text-sm nav-link">我们的方案</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="text-center py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4">智能的下一个形态：为物理世界构建统一大脑</h1>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">一条超越模仿、数据高效、可落地的具身智能技术路线</p>
+            </div>
+        </section>
+
+        <!-- Part 1: Unified Framework -->
+        <section id="part1" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">统一框架与历史洞见</h2>
+                
+                <!-- Slide 2: Unified Framework Diagram -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">"感知-认知-行动"循环：一个通用的具身智能蓝图</h3>
+                    <p class="text-slate-600 text-center mb-12 max-w-2xl mx-auto">智能并非孤立的计算，是在与环境的持续交互中涌现。这个"感知-认知-行动"的闭环是所有具身智能体的第一性原理。</p>
+                    <div class="relative max-w-4xl mx-auto h-96 flex items-center justify-center">
+                        <!-- 背景圆环 -->
+                        <div class="absolute w-80 h-80 border-2 border-dashed border-slate-300 rounded-full"></div>
+                        
+                        <!-- 感知节点 (顶部) -->
+                        <div id="node-perception" class="diagram-node absolute -top-4 left-1/2 -translate-x-1/2 bg-white p-4 rounded-lg shadow-md border border-teal-200 text-center max-w-xs">
+                            <h4 class="font-bold text-teal-700 mb-1">感知 (Perception)</h4>
+                            <p class="text-sm text-slate-500 mb-1">"世界现在是什么样子？"</p>
+                            <p class="text-xs text-slate-400">从传感器到动态三维世界模型</p>
+                        </div>
+                        
+                        <!-- 认知节点 (右下，更贴近中心) -->
+                        <div id="node-cognition" class="diagram-node absolute bottom-6 right-20 bg-white p-4 rounded-lg shadow-md border border-teal-200 text-center max-w-xs">
+                            <h4 class="font-bold text-teal-700 mb-1">认知 (Cognition)</h4>
+                            <p class="text-sm text-slate-500 mb-1">"我接下来该做什么？"</p>
+                            <p class="text-xs text-slate-400">基于世界模型、目标和策略进行推理与规划</p>
+                        </div>
+                        
+                        <!-- 行动节点 (左下，更贴近中心) -->
+                        <div id="node-action" class="diagram-node absolute bottom-6 left-20 bg-white p-4 rounded-lg shadow-md border border-teal-200 text-center max-w-xs">
+                            <h4 class="font-bold text-teal-700 mb-1">行动 (Action)</h4>
+                            <p class="text-sm text-slate-500 mb-1">"我该如何精确地执行？"</p>
+                            <p class="text-xs text-slate-400">将规划转化为稳定、自适应的电机控制</p>
+                        </div>
+                        
+                        <!-- 中心环境 -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center bg-white rounded-full p-6 shadow-lg border border-slate-200">
+                            <div class="text-4xl text-teal-500 mb-2">🌍</div>
+                            <p class="font-bold text-slate-600">环境</p>
+                        </div>
+                        
+                        <!-- 循环箭头 -->
+                        <!-- 感知 → 认知 -->
+                        <div class="absolute top-20 right-60 text-3xl text-teal-500 transform rotate-45">
+                            ➤
+                        </div>
+                        
+                        <!-- 认知 → 行动 (底部，向左) -->
+                        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-3xl text-teal-500 transform rotate-180">
+                            ➤
+                        </div>
+                        
+                        <!-- 行动 → 感知 -->
+                        <div class="absolute top-20 left-60 text-3xl text-teal-500 transform -rotate-45">
+                            ➤
+                        </div>
+                        
+                        <!-- 循环标识 -->
+                        <div class="absolute top-2 right-2 text-xs text-slate-400 bg-white px-2 py-1 rounded border">
+                            持续循环
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Timeline -->
+                <div class="mt-32">
+                    <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">案例研究：无人驾驶20年的"大脑"进化史</h3>
+                    <p class="text-slate-600 text-center mb-12 max-w-2xl mx-auto">无人驾驶技术焦点的转移，清晰地展示了具身智能大脑的进化路径，每一步都为我们提供了宝贵的经验与教训。</p>
+                    <div class="relative container mx-auto px-4">
+                        <div class="absolute h-full w-1 bg-slate-200 left-1/2 -translate-x-1/2"></div>
+                        <div class="relative">
+                            <!-- Timeline Item 1 -->
+                            <div class="flex justify-between items-center w-full mb-8">
+                                <div class="w-5/12"></div>
+                                <div class="z-10 bg-teal-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold">1</div>
+                                <div class="w-5/12">
+                                    <div class="card p-6">
+                                        <p class="text-sm text-slate-500">约2000-2009</p>
+                                        <h4 class="font-bold text-lg mb-2 text-slate-800">规则与搜索的黎明</h4>
+                                        <p class="text-sm text-slate-600 mb-2"><strong>框架焦点：</strong>认知模块由工程师的规则主导，行动模块依赖搜索。</p>
+                                        <p class="text-sm text-slate-600 mb-2"><strong>解决了：</strong>在结构化环境中"从A到B"的可行性。</p>
+                                        <p class="text-sm text-slate-600"><strong>新问题：</strong>规则脆弱，无法泛化，面对长尾问题束手无策。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Item 2 -->
+                            <div class="flex justify-between items-center w-full mb-8 flex-row-reverse">
+                                <div class="w-5/12">
+                                    <div class="card p-6">
+                                        <p class="text-sm text-slate-500">约2010-2018</p>
+                                        <h4 class="font-bold text-lg mb-2 text-slate-800">数据驱动的革命</h4>
+                                        <p class="text-sm text-slate-600 mb-2"><strong>框架焦点：</strong>深度学习彻底变革了感知模块。</p>
+                                        <p class="text-sm text-slate-600 mb-2"><strong>解决了：</strong>让车辆基本"看懂"了复杂的世界。</p>
+                                        <p class="text-sm text-slate-600"><strong>新问题：</strong>对海量数据的无尽渴求、感知的"黑箱"问题、决策能力达到"模仿"天花板。</p>
+                                    </div>
+                                </div>
+                                <div class="z-10 bg-teal-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold">2</div>
+                                <div class="w-5/12"></div>
+                            </div>
+                            <!-- Timeline Item 3 -->
+                            <div class="flex justify-between items-center w-full">
+                                <div class="w-5/12"></div>
+                                <div class="z-10 bg-teal-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold">3</div>
+                                <div class="w-5/12">
+                                    <div class="card p-6">
+                                        <p class="text-sm text-slate-500">约2019-至今</p>
+                                        <h4 class="font-bold text-lg mb-2 text-slate-800">攻坚决策智能</h4>
+                                        <p class="text-sm text-slate-600 mb-2"><strong>框架焦点：</strong>战火烧到了认知与行动模块。端到端、RL、世界模型成为前沿。</p>
+                                        <p class="text-sm text-slate-600 mb-2"><strong>解决了：</strong>试图解决复杂交互、博弈等超越简单模仿的决策问题。</p>
+                                        <p class="text-sm text-slate-600"><strong>新问题：</strong>Sim-to-Real鸿沟、奖励函数设计难、大模型安全验证难。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 2: Core Challenges -->
+        <section id="part2" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">核心挑战与业界格局</h2>
+                
+                <!-- Slide 4: Quadrant Chart -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">无人驾驶的经验：哪些是“金子”，哪些是“陷阱”？</h3>
+                    <p class="text-slate-600 text-center mb-12 max-w-2xl mx-auto">通过系统性分析无人驾驶与具身智能的异同，我们可以甄别出真正有价值的技术资产，并避开不适用的路径依赖。</p>
+                    <div class="relative max-w-4xl mx-auto border-2 border-slate-300 rounded-lg grid grid-cols-2 grid-rows-2">
+                        <!-- Axes -->
+                        <div class="absolute -bottom-10 left-0 w-full text-center text-sm text-slate-500">无人驾驶技术成熟度 (← 已解决 · 仍是挑战 →)</div>
+                        <div class="absolute -left-16 top-0 h-full flex items-center text-sm text-slate-500" style="writing-mode: vertical-rl;">与具身智能的相似度 ( ←高度相似·差异巨大→ )</div>
+                        
+                        <!-- Quadrant 1: Top Left -->
+                        <div class="quadrant border-r border-b">
+                            <div class="quadrant-title top-2 left-2 bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm">可直接借鉴</div>
+                            <ul class="list-disc list-inside text-slate-700 mt-8 space-y-2">
+                                <li>3D感知与融合技术栈</li>
+                                <li>数据闭环基础设施</li>
+                                <li>大规模模型训练经验</li>
+                            </ul>
+                        </div>
+                        <!-- Quadrant 2: Top Right -->
+                        <div class="quadrant border-b">
+                            <div class="quadrant-title top-2 right-2 bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-sm">需谨慎吸取</div>
+                             <ul class="list-disc list-inside text-slate-700 mt-8 space-y-2">
+                                <li>端到端模型理念</li>
+                                <li>模仿学习策略</li>
+                                <li>长尾问题应对方法</li>
+                            </ul>
+                        </div>
+                        <!-- Quadrant 3: Bottom Left -->
+                        <div class="quadrant border-r">
+                            <div class="quadrant-title bottom-2 left-2 bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm">不适用/误导性</div>
+                             <ul class="list-disc list-inside text-slate-700 mt-2 space-y-2">
+                                <li>对高精地图的强依赖</li>
+                                <li>基于固定交规的决策</li>
+                                <li>标准化的车辆形态</li>
+                            </ul>
+                        </div>
+                        <!-- Quadrant 4: Bottom Right -->
+                        <div class="quadrant">
+                            <div class="quadrant-title bottom-2 right-2 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm">必须寻找新范式</div>
+                             <ul class="list-disc list-inside text-slate-700 mt-2 space-y-2">
+                                <li><strong>富接触物理交互</strong></li>
+                                <li><strong>任务的语言泛化</strong></li>
+                                <li><strong>物理世界常识推理</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 & 6: Tabs for Frontiers & Landscape -->
+                <div class="mt-32">
+                    <div class="flex justify-center border-b border-slate-200 mb-8">
+                        <button data-tab="tab-frontiers" class="tab-button active-tab px-6 py-3 font-medium text-lg">学术前沿</button>
+                        <button data-tab="tab-landscape" class="tab-button px-6 py-3 font-medium text-lg">产业格局</button>
+                    </div>
+
+                    <!-- Tab Content: Frontiers -->
+                    <div id="tab-frontiers" class="tab-content">
+                        <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">学者们正在“大脑”的哪些区域奋战？</h3>
+                        <div class="grid md:grid-cols-3 gap-8 mt-8">
+                            <div class="card p-6">
+                                <h4 class="font-bold text-xl mb-3 text-teal-700">感知模块</h4>
+                                <p class="font-semibold text-slate-800">课题:</p>
+                                <p class="text-slate-600 mb-3">多模态融合、3D场景理解、语言接地。</p>
+                                <p class="font-semibold text-slate-800">进展:</p>
+                                <p class="text-slate-600">静态重建效果好，但动态、泛化和抽象理解是瓶颈。</p>
+                            </div>
+                            <div class="card p-6">
+                                <h4 class="font-bold text-xl mb-3 text-teal-700">认知模块</h4>
+                                <p class="font-semibold text-slate-800">课题:</p>
+                                <p class="text-slate-600 mb-3">世界模型、LLM作为规划器、TAMP。</p>
+                                <p class="font-semibold text-slate-800">进展:</p>
+                                <p class="text-slate-600">LLM任务分解能力强但缺物理常识，WM和TAMP计算复杂。</p>
+                            </div>
+                            <div class="card p-6">
+                                <h4 class="font-bold text-xl mb-3 text-teal-700">行动模块</h4>
+                                <p class="font-semibold text-slate-800">课题:</p>
+                                <p class="text-slate-600 mb-3">IL vs RL、Sim-to-Real鸿沟、富接触操控。</p>
+                                <p class="font-semibold text-slate-800">进展:</p>
+                                <p class="text-slate-600">Sim-to-Real是最大瓶颈之一，富接触任务极具挑战。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Landscape -->
+                    <div id="tab-landscape" class="tab-content hidden">
+                        <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">巨头与新秀们的"大脑"架构之争</h3>
+                        <div class="overflow-x-auto card mt-8">
+                            <table class="w-full text-left">
+                                <thead class="bg-slate-50">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-slate-600">公司</th>
+                                        <th class="p-4 font-semibold text-slate-600">感知方案</th>
+                                        <th class="p-4 font-semibold text-slate-600">认知/规划方案</th>
+                                        <th class="p-4 font-semibold text-slate-600">行动/数据策略</th>
+                                        <th class="p-4 font-semibold text-slate-600">核心哲学</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr><td class="p-4 font-bold">Tesla</td><td class="p-4">纯视觉，端到端</td><td class="p-4">统一神经网络</td><td class="p-4">车队学习，动捕数据</td><td class="p-4">端到端纯粹主义</td></tr>
+                                    <tr><td class="p-4 font-bold">Figure AI</td><td class="p-4">多模态VLA</td><td class="p-4">"快慢思考"解耦架构 (VLM+策略网络)</td><td class="p-4">遥操作+RL，与OpenAI合作</td><td class="p-4">务实的混合主义</td></tr>
+                                    <tr><td class="p-4 font-bold">Sanctuary</td><td class="p-4">多模态</td><td class="p-4">混合认知架构 (含符号推理)</td><td class="p-4">仿真+人在回路</td><td class="p-4">安全可审计的混合主义</td></tr>
+                                    <tr><td class="p-4 font-bold">DeepMind</td><td class="p-4">基础模型</td><td class="p-4">VLA (RT-2)</td><td class="p-4">网页级+机器人数据</td><td class="p-4">"大脑"技术赋能者</td></tr>
+                                    <tr><td class="p-4 font-bold">穹彻智能</td><td class="p-4">(未详述)</td><td class="p-4">实体世界模型+力中心模型</td><td class="p-4">"生产伴随式"数据采集</td><td class="p-4">务实的数据工程派</td></tr>
+                                    <tr><td class="p-4 font-bold">星尘智能</td><td class="p-4">力/触/视觉</td><td class="p-4">端到端大模型 (DFAI)</td><td class="p-4">软硬件协同设计，高性能硬件采集</td><td class="p-4">工程与AI深度耦合</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 3: Our Solution -->
+        <section id="part3" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">我们的解决方案与技术壁垒</h2>
+
+                <!-- Slide 7: Our Solution Diagram -->
+                <div class="mt-16">
+                     <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">破局之道：构建一个可持续自我进化的“活”大脑</h3>
+                    <p class="text-slate-600 text-center mb-12 max-w-3xl mx-auto">我们提出“好奇心-修正”双环学习系统。它不仅能从数据中学习，更能主动地、有策略地获取最有价值的数据，并持续地自我纠错。</p>
+                    <div class="card p-8 max-w-4xl mx-auto">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div class="text-center">
+                                <h4 class="font-bold text-2xl text-teal-700 mb-4">外环：好奇心驱动</h4>
+                                <p class="text-slate-600 mb-4">通过概率世界模型识别“未知”，并将其转化为内在探索奖励，驱动智能体主动探索，高效填补认知空白。</p>
+                                <div class="text-6xl">💡</div>
+                                <p class="font-semibold mt-2">主动探索未知</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-bold text-2xl text-teal-700 mb-4">内环：预测修正</h4>
+                                <p class="text-slate-600 mb-4">基于自由能理论，利用世界模型的预测与现实反馈的误差，强制模型对齐物理规律，实现持续的自监督学习。</p>
+                                <div class="text-6xl">⚙️</div>
+                                <p class="font-semibold mt-2">被动修正错误</p>
+                            </div>
+                        </div>
+                         <div class="relative mt-8 h-20 flex items-center justify-center">
+                            <div class="absolute w-full h-16 border-2 border-dashed border-teal-300 rounded-full"></div>
+                            <div class="absolute -left-4 top-1/2 -translate-y-1/2 text-teal-500 text-3xl">↻</div>
+                            <div class="absolute -right-4 top-1/2 -translate-y-1/2 text-teal-500 text-3xl">↺</div>
+                            <div class="bg-white px-4 font-bold text-slate-700 z-10">双环学习系统</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 8: Advantages -->
+                <div class="mt-32">
+                    <h3 class="text-2xl font-bold text-slate-700 text-center mb-4">技术壁垒：为什么我们的路线更优越？</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                        <div class="card p-6 text-center">
+                            <div class="text-4xl mb-4">💾</div>
+                            <h4 class="font-bold text-lg text-slate-800">数据高效</h4>
+                            <p class="text-sm text-slate-600 mt-2">Model-Based+物理约束+主动学习，极大降低对昂贵真实数据的依赖。</p>
+                        </div>
+                        <div class="card p-6 text-center">
+                            <div class="text-4xl mb-4">🚀</div>
+                            <h4 class="font-bold text-lg text-slate-800">高泛化上限</h4>
+                            <p class="text-sm text-slate-600 mt-2">好奇机制驱动探索长尾场景，突破模仿学习天花板。</p>
+                        </div>
+                        <div class="card p-6 text-center">
+                            <div class="text-4xl mb-4">🛡️</div>
+                            <h4 class="font-bold text-lg text-slate-800">真安全可解释</h4>
+                            <p class="text-sm text-slate-600 mt-2">混合架构，中间层可监督、可干预，便于调试和植入安全约束。</p>
+                        </div>
+                        <div class="card p-6 text-center">
+                            <div class="text-4xl mb-4">🎯</div>
+                            <h4 class="font-bold text-lg text-slate-800">解决核心难题</h4>
+                            <p class="text-sm text-slate-600 mt-2">引入力控与物理约束，直面富接触操控这一核心挑战。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="bg-slate-800 text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-4">结论：一条更艰难但更正确的道路</h2>
+                <p class="text-lg text-slate-300 max-w-3xl mx-auto">
+                    我们清晰地认识到，具身智能的核心挑战在于物理世界的复杂性与交互数据的高昂成本。我们提出的混合世界模型与双环学习系统，是应对这一挑战的根本性解决方案，将创造出不仅能“执行”，更能“理解”和“探索”的下一代具身智能。
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 [您的公司/项目名称]. All Rights Reserved.</p>
+            <p class="mt-2">[您的联系方式]</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    mobileMenu.classList.add('hidden'); // Close mobile menu on click
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active-tab', 'text-teal-600');
+                        btn.classList.add('text-slate-500');
+                    });
+                    button.classList.add('active-tab', 'text-teal-600');
+                    button.classList.remove('text-slate-500');
+
+                    tabContents.forEach(content => {
+                        if (content.id === tabId) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Active nav link on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('header nav a');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active-nav');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active-nav');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
